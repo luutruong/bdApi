@@ -22,6 +22,9 @@ class ProfilePostComment extends AbstractHandler
     const LINK_POSTER = 'poster';
     const LINK_POSTER_AVATAR = 'poster_avatar';
 
+    /**
+     * @inheritdoc
+     */
     public function getMappings($context)
     {
         return [
@@ -37,6 +40,9 @@ class ProfilePostComment extends AbstractHandler
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function calculateDynamicValue($context, $key)
     {
         /** @var \XF\Entity\ProfilePostComment $comment */
@@ -54,6 +60,9 @@ class ProfilePostComment extends AbstractHandler
         return null;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectLinks($context)
     {
         /** @var \XF\Entity\ProfilePostComment $comment */
@@ -73,6 +82,9 @@ class ProfilePostComment extends AbstractHandler
         return $links;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectPermissions($context)
     {
         /** @var \XF\Entity\ProfilePostComment $comment */

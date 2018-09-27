@@ -17,6 +17,9 @@ class PollResponse extends AbstractHandler
         return true;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function calculateDynamicValue($context, $key)
     {
         /** @var \XF\Entity\PollResponse $response */

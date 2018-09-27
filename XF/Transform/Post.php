@@ -44,6 +44,9 @@ class Post extends AbstractHandler implements AttachmentParent
 
     protected $attachmentData = null;
 
+    /**
+     * @inheritdoc
+     */
     public function attachmentCalculateDynamicValue($context, $key)
     {
         switch ($key) {
@@ -54,12 +57,18 @@ class Post extends AbstractHandler implements AttachmentParent
         return null;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function attachmentCollectLinks($context, array &$links)
     {
         $post = $context->getParentSource();
         $links[self::ATTACHMENT__LINK_POST] = $this->buildApiLink('posts', $post);
     }
 
+    /**
+     * @inheritdoc
+     */
     public function attachmentCollectPermissions($context, array &$permissions)
     {
         /** @var \XF\Entity\Post $post */
@@ -78,11 +87,17 @@ class Post extends AbstractHandler implements AttachmentParent
         $permissions[self::PERM_DELETE] = $canDelete;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function attachmentGetMappings($context, array &$mappings)
     {
         $mappings[] = self::ATTACHMENT__DYNAMIC_KEY_ID;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function calculateDynamicValue($context, $key)
     {
         /** @var \XF\Entity\Post $post */
@@ -151,6 +166,9 @@ class Post extends AbstractHandler implements AttachmentParent
         return null;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectPermissions($context)
     {
         /** @var \XF\Entity\Post $post */
@@ -168,6 +186,9 @@ class Post extends AbstractHandler implements AttachmentParent
         return $permissions;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectLinks($context)
     {
         /** @var \XF\Entity\Post $post */
@@ -193,6 +214,9 @@ class Post extends AbstractHandler implements AttachmentParent
         return $links;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getMappings($context)
     {
         return [
@@ -220,6 +244,9 @@ class Post extends AbstractHandler implements AttachmentParent
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function onTransformEntities($context, $entities)
     {
         $needAttachments = false;
@@ -236,6 +263,9 @@ class Post extends AbstractHandler implements AttachmentParent
         return $entities;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function onTransformFinder($context, $finder)
     {
         $threadFinder = new ParentFinder($finder, 'Thread');

@@ -28,6 +28,9 @@ class ProfilePost extends AbstractHandler
 
     const PERM_COMMENT = 'comment';
 
+    /**
+     * @inheritdoc
+     */
     public function getMappings($context)
     {
         return [
@@ -47,6 +50,9 @@ class ProfilePost extends AbstractHandler
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function calculateDynamicValue($context, $key)
     {
         /** @var \XF\Entity\ProfilePost $profilePost */
@@ -72,6 +78,9 @@ class ProfilePost extends AbstractHandler
         return null;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectLinks($context)
     {
         /** @var \XF\Entity\ProfilePost $profilePost */
@@ -92,6 +101,9 @@ class ProfilePost extends AbstractHandler
         return $links;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectPermissions($context)
     {
         /** @var \XF\Entity\ProfilePost $profilePost */
