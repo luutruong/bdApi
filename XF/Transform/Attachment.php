@@ -14,6 +14,9 @@ class Attachment extends AbstractHandler
     const LINK_DATA = 'data';
     const LINK_THUMBNAIL = 'thumbnail';
 
+    /**
+     * @inheritdoc
+     */
     public function calculateDynamicValue($context, $key)
     {
         /** @var AttachmentParent|null $parentHandler */
@@ -25,6 +28,9 @@ class Attachment extends AbstractHandler
         return parent::calculateDynamicValue($context, $key);
     }
 
+    /**
+     * @inheritdoc
+     */
     public function canView($context)
     {
         /** @var \XF\Entity\Attachment $attachment */
@@ -39,6 +45,9 @@ class Attachment extends AbstractHandler
         return $attachment->canView();
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectLinks($context)
     {
         /** @var \XF\Entity\Attachment $attachment */
@@ -63,6 +72,9 @@ class Attachment extends AbstractHandler
         return $links;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectPermissions($context)
     {
         /** @var \XF\Entity\Attachment $attachment */
@@ -82,6 +94,9 @@ class Attachment extends AbstractHandler
         return $permissions;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getMappings($context)
     {
         $mappings = [

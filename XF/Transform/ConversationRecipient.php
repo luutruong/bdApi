@@ -30,6 +30,9 @@ class ConversationRecipient extends AbstractHandler
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function calculateDynamicValue($context, $key)
     {
         /** @var \XF\Entity\ConversationRecipient $recipient */

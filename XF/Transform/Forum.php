@@ -17,6 +17,9 @@ class Forum extends AbstractNode
     const PERM_CREATE_THREAD = 'create_thread';
     const PERM_UPLOAD_ATTACHMENT = 'upload_attachment';
 
+    /**
+     * @inheritdoc
+     */
     public function getMappings($context)
     {
         $mappings = parent::getMappings($context);
@@ -34,6 +37,9 @@ class Forum extends AbstractNode
         return $mappings;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectLinks($context)
     {
         $links = parent::collectLinks($context);
@@ -49,6 +55,9 @@ class Forum extends AbstractNode
         return $links;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectPermissions($context)
     {
         $perms = parent::collectPermissions($context);
@@ -65,6 +74,9 @@ class Forum extends AbstractNode
         return $perms;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function calculateDynamicValue($context, $key)
     {
         /** @var \XF\Entity\Forum $forum */

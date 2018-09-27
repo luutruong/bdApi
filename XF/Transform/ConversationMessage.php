@@ -34,6 +34,9 @@ class ConversationMessage extends AbstractHandler implements AttachmentParent
     const LINK_CREATOR = 'creator';
     const LINK_CREATOR_AVATAR = 'creator_avatar';
 
+    /**
+     * @inheritdoc
+     */
     public function attachmentCalculateDynamicValue($context, $key)
     {
         switch ($key) {
@@ -44,6 +47,9 @@ class ConversationMessage extends AbstractHandler implements AttachmentParent
         return null;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function attachmentCollectPermissions($context, array &$permissions)
     {
         /** @var \XF\Entity\ConversationMessage $message */
@@ -60,6 +66,9 @@ class ConversationMessage extends AbstractHandler implements AttachmentParent
         $permissions[self::PERM_DELETE] = $canDelete;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function attachmentCollectLinks($context, array &$links)
     {
         /** @var \XF\Entity\ConversationMessage $message */
@@ -68,11 +77,17 @@ class ConversationMessage extends AbstractHandler implements AttachmentParent
         $links[self::ATTACHMENT__LINK_MESSAGE] = $this->buildApiLink('conversation-messages', $message);
     }
 
+    /**
+     * @inheritdoc
+     */
     public function attachmentGetMappings($context, array &$mappings)
     {
         $mappings[] = self::ATTACHMENT__DYNAMIC_KEY_ID;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getMappings($context)
     {
         return [
@@ -94,6 +109,9 @@ class ConversationMessage extends AbstractHandler implements AttachmentParent
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function calculateDynamicValue($context, $key)
     {
         /** @var \XF\Entity\ConversationMessage $message */
@@ -155,6 +173,9 @@ class ConversationMessage extends AbstractHandler implements AttachmentParent
         return null;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectLinks($context)
     {
         /** @var \XF\Entity\ConversationMessage $message */
@@ -170,6 +191,9 @@ class ConversationMessage extends AbstractHandler implements AttachmentParent
         return $links;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectPermissions($context)
     {
         /** @var \XF\Entity\ConversationMessage $message */
@@ -189,6 +213,9 @@ class ConversationMessage extends AbstractHandler implements AttachmentParent
         return $perms;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function onTransformEntities($context, $entities)
     {
         $needAttachments = false;

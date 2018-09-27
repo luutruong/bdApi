@@ -27,6 +27,9 @@ class ConversationMaster extends AbstractHandler
     const PERM_REPLY = 'reply';
     const PERM_UPLOAD_ATTACHMENT = 'upload_attachment';
 
+    /**
+     * @inheritdoc
+     */
     public function getMappings($context)
     {
         return [
@@ -48,6 +51,9 @@ class ConversationMaster extends AbstractHandler
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function calculateDynamicValue($context, $key)
     {
         /** @var \XF\Entity\ConversationMaster $conversation */
@@ -112,6 +118,9 @@ class ConversationMaster extends AbstractHandler
         return null;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectLinks($context)
     {
         /** @var \XF\Entity\ConversationMaster $conversation */
@@ -129,6 +138,9 @@ class ConversationMaster extends AbstractHandler
         return $links;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectPermissions($context)
     {
         /** @var \XF\Entity\ConversationMaster $conversation */
@@ -142,6 +154,9 @@ class ConversationMaster extends AbstractHandler
         return $perms;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function onTransformEntities($context, $entities)
     {
         if (!$context->selectorShouldExcludeField(self::DYNAMIC_KEY_FIRST_MESSAGE)) {
@@ -182,6 +197,9 @@ class ConversationMaster extends AbstractHandler
         return parent::onTransformEntities($context, $entities);
     }
 
+    /**
+     * @inheritdoc
+     */
     public function onTransformFinder($context, $finder)
     {
         if (!$context->selectorShouldExcludeField(self::DYNAMIC_KEY_FIRST_MESSAGE)) {

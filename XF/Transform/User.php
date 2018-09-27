@@ -53,11 +53,17 @@ class User extends AbstractHandler
     const PERM_SELF_CREATE_CONVO = 'create_conversation';
     const PERM_SELF_ATTACH_CONVO = 'upload_attachment_conversation';
 
+    /**
+     * @inheritdoc
+     */
     public function canView($context)
     {
         return true;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function calculateDynamicValue($context, $key)
     {
         /** @var \XF\Entity\User $user */
@@ -160,6 +166,9 @@ class User extends AbstractHandler
         return null;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectLinks($context)
     {
         /** @var \XF\Entity\User $user */
@@ -183,6 +192,9 @@ class User extends AbstractHandler
         return $links;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectPermissions($context)
     {
         /** @var \XF\Entity\User $user */
@@ -197,6 +209,9 @@ class User extends AbstractHandler
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getMappings($context)
     {
         $mappings = [
@@ -369,6 +384,9 @@ class User extends AbstractHandler
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function onTransformFinder($context, $finder)
     {
         $finder->with('Privacy');

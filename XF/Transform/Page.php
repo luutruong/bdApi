@@ -8,6 +8,9 @@ class Page extends AbstractNode
 
     const DYNAMIC_KEY_PAGE_HTML = 'page_html';
 
+    /**
+     * @inheritdoc
+     */
     public function getMappings($context)
     {
         $mappings = parent::getMappings($context);
@@ -18,6 +21,9 @@ class Page extends AbstractNode
         return $mappings;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function calculateDynamicValue($context, $key)
     {
         /** @var \XF\Entity\Page $page */
@@ -32,6 +38,9 @@ class Page extends AbstractNode
         return parent::calculateDynamicValue($context, $key);
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectLinks($context)
     {
         $links = parent::collectLinks($context);

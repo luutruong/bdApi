@@ -40,6 +40,9 @@ class Thread extends AbstractHandler
     const PERM_POST = 'post';
     const PERM_UPLOAD_ATTACHMENT = 'upload_attachment';
 
+    /**
+     * @inheritdoc
+     */
     public function calculateDynamicValue($context, $key)
     {
         /** @var \XF\Entity\Thread $thread */
@@ -103,6 +106,9 @@ class Thread extends AbstractHandler
         return null;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectPermissions($context)
     {
         /** @var \XF\Entity\Thread $thread */
@@ -121,6 +127,9 @@ class Thread extends AbstractHandler
         return $permissions;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectLinks($context)
     {
         /** @var \XF\Entity\Thread $thread */
@@ -148,6 +157,9 @@ class Thread extends AbstractHandler
         return $links;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getMappings($context)
     {
         return [
@@ -175,6 +187,9 @@ class Thread extends AbstractHandler
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function onTransformEntities($context, $entities)
     {
         if (!$context->selectorShouldExcludeField(self::DYNAMIC_KEY_FIRST_POST)) {
@@ -189,6 +204,9 @@ class Thread extends AbstractHandler
         return $entities;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function onTransformFinder($context, $finder)
     {
         $forumFinder = new ParentFinder($finder, 'Forum');

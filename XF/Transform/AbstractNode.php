@@ -9,6 +9,9 @@ abstract class AbstractNode extends AbstractHandler
     const LINK_SUB_CATEGORIES = 'sub-categories';
     const LINK_SUB_FORUMS = 'sub-forums';
 
+    /**
+     * @inheritdoc
+     */
     public function getMappings($context)
     {
         return [
@@ -18,6 +21,9 @@ abstract class AbstractNode extends AbstractHandler
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectLinks($context)
     {
         /** @var \XF\Entity\AbstractNode $node */
@@ -40,6 +46,9 @@ abstract class AbstractNode extends AbstractHandler
         return $links;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function collectPermissions($context)
     {
         $perms = [];
