@@ -150,15 +150,15 @@ class PingQueue extends Repository
             if ($responseCode < 200 or $responseCode > 299) {
                 $this->reInsertQueue($records);
                 $reInserted = true;
+            }
 
+            if (\XF::$debugMode || $reInserted) {
                 \XF::logError(sprintf(
                     '[bd] Api: ping queue re-insert queue. $responseBody=%s $responseCode=%d',
                     $responseBody,
                     $responseCode
                 ));
-            }
-            
-            if (\XF::$debugMode || $reInserted) {
+                
                 /** @var Log $logRepo */
                 $logRepo = $this->repository('Xfrocks\Api:Log');
                 $logRepo->logRequest(
