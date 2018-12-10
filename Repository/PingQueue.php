@@ -151,14 +151,8 @@ class PingQueue extends Repository
                 $this->reInsertQueue($records);
                 $reInserted = true;
             }
-
+            
             if (\XF::$debugMode || $reInserted) {
-                \XF::logError(sprintf(
-                    '[bd] Api: ping queue re-insert queue. $responseBody=%s $responseCode=%d',
-                    $responseBody,
-                    $responseCode
-                ));
-                
                 /** @var Log $logRepo */
                 $logRepo = $this->repository('Xfrocks\Api:Log');
                 $logRepo->logRequest(
